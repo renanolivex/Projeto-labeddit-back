@@ -4,6 +4,8 @@ import { ZodError } from "zod"
 import { BaseError } from "../errors/BaseError"
 import { CommentsBusiness } from "../business/CommentsBusiness"
 import { CreateCommentSchema } from "../dtos/comments/createComment.dto"
+import { LikeDislikeSchema } from "../dtos/comments/likeanddislike.dto"
+import { EditCommentSchema } from "../dtos/comments/editComment.dto"
 
 export class CommentsController {
 
@@ -42,7 +44,7 @@ export class CommentsController {
                 post_id:req.params.id   
            })
 
-            console.log(input)
+           
             await this.commentsBusiness.createNewPost(input)
             res.status(201).send("Post criado com sucesso")
             
@@ -57,15 +59,16 @@ export class CommentsController {
         }
     }
 
- /*    public createPosts = async (req: Request, res: Response): Promise<void> => {
+    public editPosts = async (req: Request, res: Response): Promise<void> => {
         try {
-            const input = CreatePostSchema.parse({
-                content: req.body.content,
+            const input = EditCommentSchema.parse({
+                id:req.params.id,
+                content:req.body.content,
                 token: req.headers.authorization
             })
-            await this.postsBusiness.createNewPost(input)
 
-            res.status(201).send("Post criado com sucesso")
+            await this.commentsBusiness.editNewPost(input)
+            res.status(200).send("Post editado com sucesso!")
         } catch (error) {
             if (error instanceof ZodError) {
                 res.status(400).send(error.issues)
@@ -75,7 +78,33 @@ export class CommentsController {
                 res.status(500).send("Erro inesperado")
             }
         }
-    } */
+    }
+
+
+    public likeAndDislike = async (req:Request, res:Response)=>{
+        try {
+            const input = LikeDislikeSchema.parse({
+                id:req.params.id,
+                token:req.headers.authorization,
+                like:req.body.like
+            })
+            this.commentsBusiness.likeAndDislikePosts(input)
+
+            res.status(201).send("Reação alterada com sucesso!")
+        } catch (error) {
+            if (error instanceof ZodError) {
+                res.status(400).send(error.issues)
+            } else if (error instanceof BaseError) {
+                res.status(error.statusCode).send(error.message)
+            } else {
+                res.status(500).send("Erro inesperado")
+            }
+            
+        }
+    }
+
+
+
 
 }
 

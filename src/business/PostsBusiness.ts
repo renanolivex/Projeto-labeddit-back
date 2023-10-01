@@ -12,6 +12,7 @@ import { DeletePostDTO } from "../dtos/post/deletePost.dto"
 import { LikeDislikeOutputDTO, LikeDislikeinputDTO } from "../dtos/post/likeanddislike.dto"
 import { GetPostDTO, GetPostsOutputDTO} from "../dtos/post/getPost.dto"
 import { NotFoundError } from "../errors/NotFoundError"
+import { CommentsDataBase } from "../database/CommentsDataBase"
 
    
 
@@ -22,7 +23,8 @@ export class PostsBusiness{
         private postsDatabase: PostsDataBase,
         private IdGenerator: IdGeneratorPost,
         private tokenManager: TokenManager,
-        private usersDatabase: UsersDatabase
+        private usersDatabase: UsersDatabase,
+        private commentsDatabase:CommentsDataBase
   
     ){}
 
@@ -38,10 +40,13 @@ export class PostsBusiness{
         
 
         const postsData = await this.postsDatabase.getAllPosts()
-
+        const commentsData = await this.commentsDatabase.getAllComments()
+        const commentsCount = commentsData.length
+        console.log(commentsCount, "TESTE DE QUANTIDADE")
      
         const getUsers = await this.usersDatabase.findAllUsers()
     
+        
 
     const getUsersId = getUsers.map((found)=>found.id)
 
@@ -114,6 +119,7 @@ export class PostsBusiness{
         const creatorFound = searchCreator.find(element => element.id === payload?.id) 
         const creator_id = creatorFound?.id as string
         const today = new Date().toISOString()
+
         let comments = 0
         let likes = 0
         let dislikes = 0
