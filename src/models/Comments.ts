@@ -130,3 +130,16 @@ export interface CommentPostsDB {
     created_at :string,
     updated_at :string
    } 
+
+   
+export enum POST_EXISTS_LIKE {
+  LIKED = "LIKED",
+  DISLIKED = "DISLIKED"
+  
+}
+
+export interface likeDeslikeDB{
+  user_id:string;
+  post_id:string;
+  like:number;
+}

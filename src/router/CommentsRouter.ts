@@ -22,5 +22,8 @@ const commentController = new CommentsController(
 
  commentsRouter.get("/:id", commentController.getPosts) 
 commentsRouter.post("/:id", commentController.createPostComment)
+commentsRouter.put("/:id",commentController.editPosts)
+commentsRouter.put("/:id/like", commentController.likeAndDislike)
+
 
  

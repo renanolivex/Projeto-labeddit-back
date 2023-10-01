@@ -1,4 +1,4 @@
--- Active: 1695558857659@@127.0.0.1@3306
+-- Active: 1696088663986@@127.0.0.1@3306
 
 CREATE TABLE users(
     id TEXT NOT NULL PRIMARY KEY UNIQUE,
@@ -82,5 +82,11 @@ DROP TABLE users;
 
 DROP TABLE post_comments;
 
-SELECT * FROM post_comments
+SELECT * FROM post_comments;
+
+
+SELECT * FROM posts;
+
+
+SELECT * FROM users
 

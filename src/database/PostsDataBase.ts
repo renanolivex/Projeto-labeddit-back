@@ -11,7 +11,27 @@ export class PostsDataBase extends BaseDatabase{
         const result: PostsDB[] = await BaseDatabase.connection(PostsDataBase.POST_TABLE)
         return result
         
+
     }
+
+    public async findPost(input: string | undefined): Promise<PostsDB[]> {
+        let postsDB
+    
+        if (input) {
+          const result: PostsDB[] = await BaseDatabase
+            .connection(PostsDataBase.POST_TABLE)
+            .where("id", "LIKE", `%${input}%`)
+    
+          postsDB = result
+        } else {
+          const result: PostsDB[] = await BaseDatabase
+            .connection(PostsDataBase.POST_TABLE)
+    
+          postsDB = result
+        }
+    
+        return postsDB
+      }
 
     
  
@@ -54,6 +74,8 @@ export class PostsDataBase extends BaseDatabase{
     public updateLD = async(inputLike: likeDeslikeDB):Promise<void>=>{
         await BaseDatabase.connection(PostsDataBase.POST_TABLE_LIKES).update(inputLike).where({user_id:inputLike.user_id, post_id: inputLike.post_id })
     }
+
+    
 
   
 } 
