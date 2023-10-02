@@ -6,6 +6,7 @@ import { PostsDataBase } from "./PostsDataBase"
 export class CommentsDataBase extends BaseDatabase{
     private static POST = "post_comments"
     private static POST_TABLE_LIKES = "likes_dislikes"
+  
 
     public getAllCommentsPosts = async(id:any) : Promise <CommentPostsDB[]> => {
         
@@ -25,8 +26,9 @@ export class CommentsDataBase extends BaseDatabase{
     public createNewPostComment = async (post:CommentPostsDB):Promise<void> =>{
         
         await BaseDatabase.connection(CommentsDataBase.POST).insert(post)
-
+        await BaseDatabase.connection(PostsDataBase.POST_TABLE).where({id:post.post_id}).increment("comments")
     }
+
 
 
     public editNewPost = async (input: CommentPostsDB):Promise<void> =>{

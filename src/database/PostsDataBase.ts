@@ -4,7 +4,7 @@ import { BaseDatabase } from "./BaseDataBase"
 
 
 export class PostsDataBase extends BaseDatabase{
-    private static POST_TABLE = "posts"
+    public static POST_TABLE = "posts"
     private static POST_TABLE_LIKES = "likes_dislikes"
 
     public getAllPosts = async (): Promise <PostsDB[]> => {
