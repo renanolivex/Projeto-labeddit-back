@@ -46,7 +46,7 @@ export class PostsDataBase extends BaseDatabase{
         await BaseDatabase.connection(PostsDataBase.POST_TABLE).update(input).where({id:input.id})
     }
 
-    public deletePost = async (input:DeletePostDTO)=>{
+    public deletePost = async (input:DeletePostDTO):Promise<void>=>{
         await BaseDatabase.connection(PostsDataBase.POST_TABLE).del().where({id:input.id})
     }
 

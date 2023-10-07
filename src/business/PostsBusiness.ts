@@ -1,4 +1,3 @@
-import { promises } from "dns"
 import { PostsDataBase } from "../database/PostsDataBase"
 import { UsersDatabase } from "../database/UsersDataBase"
 import { CreatePostDTO } from "../dtos/post/createPost.dto"
