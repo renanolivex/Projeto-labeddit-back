@@ -2,7 +2,6 @@
 
 Trabalho realizado com fins acadêmicos. A proposta do projeto é criar endPoints para uso do Front-end.
 O projeto foi um requisito do curso de desenvolvimento full-stack da Labenu.
-
 # Link para uso dos Paths
 https://projeto-labeddit-back-izjw.onrender.com
 
