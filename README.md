@@ -7,6 +7,9 @@ O projeto foi um requisito do curso de desenvolvimento full-stack da Labenu.
 https://documenter.getpostman.com/view/26594293/2s9YJc2NxH
 
 # Documentação no Postman
+https://documenter.getpostman.com/view/26594293/2s9YJc2NxH
+
+# Documentação no Postman
 Link do Front-end do projeto : https://github.com/renanolivex/Projeto-labeddit-front
 
 # Súmario
