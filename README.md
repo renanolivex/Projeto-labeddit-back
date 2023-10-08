@@ -21,7 +21,7 @@ Link do Front-end do projeto : https://github.com/renanolivex/Projeto-labeddit-f
 - <a>EXEMPLOS</a>
 - <a>TECNOLOGIAS</a>
 - <a>DESENVOLVEDOR</a>
- 
+  
 # Paths 
 Requisições de Posts
 - /posts
