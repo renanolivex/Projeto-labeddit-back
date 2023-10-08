@@ -106,6 +106,10 @@ export class PostsBusiness{
             throw new BadRequestError ("Não foi adicionado um post válido")
         }
 
+        if(content.length ===null && content.length ===undefined && content.length ===0){
+            throw new BadRequestError ("Não foi adicionado um post válido")
+            }
+
         const payload = this.tokenManager.getPayLoad(token)
         if(!payload){
             throw new BadRequestError ("Não foi adicionado um token válido")
