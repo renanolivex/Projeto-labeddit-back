@@ -2,7 +2,11 @@
 
 Trabalho realizado com fins acadêmicos. A proposta do projeto é criar endPoints para uso do Front-end.
 O projeto foi um requisito do curso de desenvolvimento full-stack da Labenu.
-# Link para uso dos Paths
+
+# Link do Deploy do Front-End (Funcionando com o Back)
+https://projetolabeddit-renan.surge.sh/posts
+
+# Link para uso dos Paths (Deploy Back-End)
 https://projeto-labeddit-back-izjw.onrender.com
 
 # Documentação no Postman
@@ -17,7 +21,7 @@ Link do Front-end do projeto : https://github.com/renanolivex/Projeto-labeddit-f
 - <a>EXEMPLOS</a>
 - <a>TECNOLOGIAS</a>
 - <a>DESENVOLVEDOR</a>
- 
+  
 # Paths 
 Requisições de Posts
 - /posts
